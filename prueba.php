@@ -48,6 +48,17 @@ function updateStock($conexion, $stock, $cod)
    actualizar el stock');
 }
 
+
+function modifyProduct($conexion, $arguments)
+{
+   $query = "UPDATE productos SET descripcion='{$arguments['description']}',
+   proveedor='{$arguments['provider']}', fecha_ingreso='{$arguments['date']}' WHERE cod_producto='{$arguments['cod']}'";
+    
+    
+   $execute = mysql_query($query, $conexion) or die('Error: No se pudo
+   modificar el producto');
+}
+
 if ($_POST['actualiza'] == 'Actualizar')
 {
    $cod = $_POST['seleccionar'];
@@ -66,7 +77,7 @@ if ($_POST['actualiza'] == 'Actualizar')
        else
        {
           updateStock($conexion, $stock, $cod);
-          header('Location:mod_producto.php?');
+          header('Location:mod_producto.php');
        }
    }
    else
@@ -74,7 +85,28 @@ if ($_POST['actualiza'] == 'Actualizar')
       //El codigo ingresado no esta en la base de datos
       header('Location:mod_producto.php?msg=1');
    }
+}//fin de actualizar stock
+elseif ($_POST['modificar'] == 'Modificar')
+{
+   $cod = $_POST['seleccionar'];
+   $description = $_POST['descripcion'];
+   $provider = $_POST['proveedor'];
+   $date = $_POST['fecha'];
+   
+   $keys = ['cod', 'description', 'provider', 'date'];
+   $values = [$cod, $description, $provider, $date];
+   $arguments = array_combine($keys, $values);
     
-}
-
+   $array = validateCode($conexion, $cod);
+   if ($array['bool']) //El cod ingresado es valido
+   {
+       modifyProduct($conexion, $arguments);
+       header('Location:mod_producto.php');
+   }
+   else
+   {
+      //El codigo ingresado no esta en la base de datos
+      header('Location:mod_producto.php?msg=1');
+   } 
+}//fin de modificar producto
 ?>

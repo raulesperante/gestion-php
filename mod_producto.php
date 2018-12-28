@@ -113,7 +113,7 @@ session_start();
 	            	Redirigir a la misma pagina para visualizar los cambios.  -->
 
 
-	            <form name="modificar" method="post" action="" enctype="application/x-www-form-urlencoded">
+	            <form name="modificar" method="post" action="prueba.php" enctype="application/x-www-form-urlencoded">
 
 	                <div class="campo">
 	                    <label name="Seleccionar">Ingresa el código del producto que deseas modificar:</label>
