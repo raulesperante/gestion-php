@@ -1,0 +1,203 @@
+body {
+    font-family: Verdana, Sans-serif;
+    font-size: 1.2em;
+}
+
+.contenedor {
+    background-color: #DDDDDD;
+    border: 1px solid #BBBBBB;
+    margin: 1em auto;
+    width: 80%;
+}
+
+.contenedorLogin {
+    background-color: #DDDDDD;
+    border: 1px solid #BBBBBB;
+    margin: 6em auto;
+    width: 60%;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 1em 0 0;
+}
+
+.encabezado {
+    background-color: #CCCCCC;
+    margin: 0;
+    padding: 1em 1.5em;
+    text-align: center;
+}
+
+.encabezado .derecha{
+    float: right;
+}
+
+.encabezado .centro{
+    display: inline-block;
+}
+
+.encabezado .izq{
+    float: left;
+}
+
+.formulario {
+    background-color: #CCCCCC;
+    border: 1px solid #AAAAAA;
+    margin: 2em auto;
+    width: 75%;
+}
+
+.login{
+    background-color:#06fbca;
+    border: 1px solid #AAAAAA;
+    width: 92.5%;
+    padding: 0.5em 1.5em;
+
+}
+
+
+.login .campos{
+    margin: 0.5em 1.5em;
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+.campos label {
+    display: block;
+}
+
+
+.campo {
+    margin: 0.5em 1.5em;
+    padding: 0.5em 0;
+}
+
+.campo label {
+    display: block;
+}
+
+.campo .en-linea {
+    display: inline-block;
+}
+
+.campo .en-linea.izquierdo {
+    margin-right: 2em;
+}
+
+.botones {
+    text-align: center;
+}
+
+
+.formulario .botones {
+    background-color: #AAAAAA;
+    margin: 0;
+    padding: 1em 1.5em;
+}
+
+button, input[type=submit] {
+    background-color: #00AAEE;
+    border: 1px solid #0099DD;
+    color: #FFFFFF;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+}
+
+button:hover, input[type=submit]:hover,
+button:focus, input[type=submit]:focus {
+    background-color: #33CCFF;
+}
+
+button:active, input[type=submit]:active {
+    background-color: #0077BB;
+    border: 1px solid #0066AA;
+    color: #DDDDDD;
+}
+
+button:disabled, input[type=submit]:disabled {
+    opacity: 0.5;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number], input[type=date] {
+    background-color: #EEEEEE;
+    border: 1px solid #999999;
+    color: #111111;
+    font-size: 0.9em;
+    padding: 0.4em;
+}
+
+.contenedor > .botones {
+    margin-bottom: 2em;
+}
+
+.division-tabla {
+    margin: 2em auto;
+    width: 90%;
+}
+
+
+table {
+    text-align: center;
+}
+
+table th {
+    background-color: #0066CC;
+    color: #FFFFFF;
+    padding: 0.5em 1em;
+    width: 19%;
+}
+
+table td {
+    background-color: #FFFFFF;
+    color: #111111;
+    padding: 0.5em 1em;
+}
+
+table, tr, th, td {
+    border: 1px solid #333333;
+    border-collapse: collapse;
+}
+
+img{
+  border:1px;
+  border-radius:15px;
+}
+img.fondo{
+opacity:0.4;
+filter:alpha(opacity=40);
+}
+
+a.modulos{
+box-shadow: 0px 0px 10px 0px #000000;
+}
+a.modulos:link{
+box-shadow: 0px 0px 10px 0px #000000;   
+}
+a.modulos:hover {
+color:#33FFFF;
+box-shadow: 0px 0px 15px 0px #000000; 
+background-color: #3399FF;
+
+} 
+a.modulos:active { 
+box-shadow: 0px 0px 5px 0px #000000; 
+background-color: #0000FF;
+color:#990033;}
+
+img.modulos{
+box-shadow: 0px 0px 5px 0px #000000;
+}
+
+table.tabla{
+font-size:14px;
+color:#000000;
+font-family:Verdana, Arial, Helvetica, sans-serif; 
+background-color: #ffffff;
+box-shadow: 0px 0px 5px 0px #000000;
+}
