@@ -73,7 +73,7 @@ session_start();
 
 	        <div class="formulario">
 
-	            <form name="actualizar" method="post" action="prueba.php" enctype="application/x-www-form-urlencoded">
+	            <form name="actualizar" method="post" action="logicaModificarProducto.php" enctype="application/x-www-form-urlencoded">
 	           		<div class="campo">
 	               		<p>Para actualizar el stock de un producto ingresa el código del producto y la cantidad que deseas agregar. Para quitar deber ingresar la cantidad anteponiendo el signo menos (-) a la cantidad</p><br><br>
 
@@ -113,7 +113,7 @@ session_start();
 	            	Redirigir a la misma pagina para visualizar los cambios.  -->
 
 
-	            <form name="modificar" method="post" action="prueba.php" enctype="application/x-www-form-urlencoded">
+	            <form name="modificar" method="post" action="logicaModificarProducto.php" enctype="application/x-www-form-urlencoded">
 
 	                <div class="campo">
 	                    <label name="Seleccionar">Ingresa el código del producto que deseas modificar:</label>
