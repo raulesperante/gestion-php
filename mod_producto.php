@@ -18,7 +18,7 @@ session_start();
 		<div class="contenedor">
 			<div class= "encabezado">
 				<div class="izq">
-					<p>Bienvenido/a:<br><!-- Agregar variable de sesión con nombre y apellido del usuario --></p>
+					<p>Bienvenido/a:<br><?php echo $_SESSION['nombres'] ?></p>
 				</div>
 
 				<div class="centro">
