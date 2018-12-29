@@ -2,32 +2,6 @@
 include('conexion.php');
 include('funciones.php');
 
-
-function validateCode($conexion, $cod)
-{
-    $query = "SELECT * FROM productos WHERE cod_producto='$cod'";
-    
-    $execute = mysql_query($query, $conexion) or die('Error');
-    
-    $result = mysql_num_rows($execute);
-    
-    $array = [
-        'bool' => true,
-        'executeQuery' => $execute,
-    ]; 
-    
-    if ($result ==  1) //El cod. es primary key 
-    {
-        return $array;
-    }
-    else
-    {
-        $array['bool'] = false;
-        $array['executeQuery'] = null;
-        return $array;
-    }   
-}
-
 function deleteProduct($conexion, $cod)
 {
    $query = "DELETE FROM productos WHERE cod_producto='$cod'";
@@ -54,7 +28,4 @@ if (isset($_POST['eliminar']))
     }
     
 }
-
-
-
 ?>
