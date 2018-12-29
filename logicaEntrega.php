@@ -1,19 +1,18 @@
 <?php
+include('conexion.php');
+include('funciones.php');
 
-CREATE TABLE productos(
-	cod_producto VARCHAR(20) NOT NULL,
-	descripcion VARCHAR(50) NOT NULL,
-	stock VARCHAR(20) NOT  NULL,
-	proveedor VARCHAR(50) NOT NULL,
-	fecha_ingreso VARCHAR(30) NOT NULL,
-	PRIMARY KEY(cod_producto)
-)charset=latin1;
-
-CREATE TABLE entregas(
-	rut VARCHAR(20) NOT NULL,
-	cod_producto VARCHAR(50) NOT NULL,
-	cantidad VARCHAR(50) NOT NULL,
-	fecha_entrega VARCHAR(30) NOT NULL
+function loadDeliveries($conexion, $arguments)
+{
+    $query = "INSERT INTO entregas(rut, cod_producto,
+    cantidad, fecha_entrega) VALUES ('{$arguments['rut']}',
+    '{$arguments['cod']}', '{$arguments['cantidad']}', 
+    '{$arguments['fecha']}')";
+    
+    $execute = mysql_query($query, $conexion) or die('No se cargaron
+    los datos');
+}
+    
 
 if (isset($_POST['agregar']))
 {
@@ -22,17 +21,36 @@ if (isset($_POST['agregar']))
     $cantidad = $_POST['cantidad'];
     $fecha = $_POST['fecha'];
     
-    if ($cod <= 0)
+    $keys = ['rut', 'cod', 'cantidad', 'fecha'];
+    $values = [$rut, $cod, $cantidad, $fecha];
+    $arguments = array_combine($keys, $values);
+    
+    if ($cantidad <= 0) 
     {
-        //Debe ingresar una cantidad positiva
-        header('Location:realizar_entrega.php?msg=0');
+        header('Location:realizar_entrega.php?msg=1');
     }
+   //Tengo que cargar la tabla entregas con los datos que me dieron 
     
-    //con el codigo tengo que validar si hay stock para retirar
-    //if ($stock - $cantidad < 0)
-    //tengo que validar que no pongan una cantidad negativa
-    
-    
+   $array = validateCode($conexion, $cod);
+   if ($array['bool']) //el codigo es valido
+   {
+       $stock = getStock($array['executeQuery']) - $cantidad;
+       if ($stock < 0) //stock negativo
+       {
+          header('Location:realizar_entrega.php?msg=2');
+       }
+       else
+       {
+          updateStock($conexion, $stock, $cod);
+          loadDeliveries($conexion, $arguments);
+          header('Location:realizar_entrega.php');
+       }
+   }
+   else
+   {
+      //El codigo ingresado no esta en la base de datos
+      header('Location:mod_producto.php?msg=3');
+   }
 }
     
 

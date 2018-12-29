@@ -36,4 +36,13 @@ function validateCode($conexion, $cod)
         return $array;
     }   
 }
+
+function updateStock($conexion, $stock, $cod)
+{
+   $query = "UPDATE productos SET stock={$stock} WHERE
+   cod_producto={$cod}";
+    
+   $execute = mysql_query($query, $conexion) or die('Error: No se pudo
+   actualizar el stock');
+}
 ?>

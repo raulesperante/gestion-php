@@ -3,16 +3,6 @@ include('conexion.php');
 include('funciones.php');
 
 
-function updateStock($conexion, $stock, $cod)
-{
-   $query = "UPDATE productos SET stock={$stock} WHERE
-   cod_producto={$cod}";
-    
-   $execute = mysql_query($query, $conexion) or die('Error: No se pudo
-   actualizar el stock');
-}
-
-
 function modifyProduct($conexion, $arguments)
 {
    $query = "UPDATE productos SET descripcion='{$arguments['description']}',
@@ -32,8 +22,6 @@ if (isset($_POST['actualiza']))
    $array = validateCode($conexion, $cod);
    if ($array['bool']) //el codigo es valido
    {
-       
-       $stock += getStock($array['executeQuery']);
        if ($stock < 0) //stock negativo
        {
           header('Location:mod_producto.php?msg=2');

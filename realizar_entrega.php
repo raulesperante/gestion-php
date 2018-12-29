@@ -68,37 +68,39 @@ session_start();
 
                 <div class="campo">
                     <label name="cod">Código del producto:</label>
-                    <input name='codigo' type="text">
+                    <input name='codigo' type="text" required/>
                 </div>
 
                 <div class="campo">
                     <label name="cantd">Cantidad:</label>
-                    <input name='cantidad' type="text">
+                    <input name='cantidad' type="text" required/>
                 </div>
 
                 <div class="campo">
                     <label name="cantd">Fecha entrega:</label>
-                    <input name='fecha' type="date">
+                    <input name='fecha' type="date" required/>
                 </div>
                 
                 <div class="botones">
-                    <input name='agregar' type="submit" value="Agregar">
+                    <input name='agregar' type="submit" value="Agregar" required/>
                 </div>
                 
                 <?php
-                if ($_GET['msg'] == 0)
+                if ($_GET['msg'] == 1)
                 {
-                   echo "<br><div 'style=color:red';<p>Debe ingresar
-                   una cantidad positiva</p></div><br>" 
+                   echo "<br><div style='color:red;'<p>Debe ingresar
+                   una cantidad positiva</p></div><br>";
                 }
-                
+                elseif ($_GET['msg'] == 2)
+                {
+                   echo "<br><div style='color:red;'<p>El stock no puede quedar negativo</p></div><br>";                   
+                }
+                elseif ($_GET['msg'] == 3)
+                {
+                   echo "<br><div style='color:red;'<p>El stock no puede quedar negativo</p></div><br>";                   
+                    
+                }
                 ?>
-                
-                
-                
-                
-                
-                
             </form>
 
             <!-- Verificar que la variable del boton submit este creada.
