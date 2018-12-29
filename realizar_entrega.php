@@ -85,6 +85,20 @@ session_start();
                     <input name='agregar' type="submit" value="Agregar">
                 </div>
                 
+                <?php
+                if ($_GET['msg'] == 0)
+                {
+                   echo "<br><div 'style=color:red';<p>Debe ingresar
+                   una cantidad positiva</p></div><br>" 
+                }
+                
+                ?>
+                
+                
+                
+                
+                
+                
             </form>
 
             <!-- Verificar que la variable del boton submit este creada.

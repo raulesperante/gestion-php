@@ -1,5 +1,6 @@
 <?php
 include('conexion.php');
+include('funciones.php');
 
 
 function validateCode($conexion, $cod)
