@@ -1,6 +1,10 @@
 
 <!-- Inclución de archivos requeridos -->
-
+<?php
+error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+include('sesion.php');
+session_start();
+?>
 <!DOCTYPE html> 
 <html>
 	<head>
@@ -14,7 +18,7 @@
 		<div class="contenedor">
 			<div class= "encabezado">
 	        	<div class="izq">
-	        		<p>Bienvenido/a:<br><!-- Agregar variable de sesión con nombre y apellido del usuario --></p>
+	        		<p>Bienvenido/a:<br><?php echo $_SESSION['nombres'] ?></p>
 	        	</div>
 
 	            <div class="centro">

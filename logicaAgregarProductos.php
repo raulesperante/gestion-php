@@ -39,7 +39,7 @@ function insertarDatos($arreglo, $conexion)
     insertar datos');
 }
 
-if ($_POST['crear'] == 'Agregar producto')
+if (isset($_POST['crear']))
 {
    $codigo = $_POST['codigo'];
    $descripcion = $_POST['descripcion'];

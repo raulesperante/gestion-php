@@ -59,7 +59,7 @@ function modifyProduct($conexion, $arguments)
    modificar el producto');
 }
 
-if ($_POST['actualiza'] == 'Actualizar')
+if (isset($_POST['actualiza']))
 {
    $cod = $_POST['seleccionar'];
     
@@ -86,7 +86,7 @@ if ($_POST['actualiza'] == 'Actualizar')
       header('Location:mod_producto.php?msg=1');
    }
 }//fin de actualizar stock
-elseif ($_POST['modificar'] == 'Modificar')
+elseif (isset($_POST['modificar']))
 {
    $cod = $_POST['seleccionar'];
    $description = $_POST['descripcion'];

@@ -35,7 +35,7 @@ function deleteProduct($conexion, $cod)
 }
 
 
-if ($_POST['eliminar'] == 'ELIMINAR')
+if (isset($_POST['eliminar']))
 {
     $cod = $_POST['eliminar-producto'];
     
