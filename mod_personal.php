@@ -1,5 +1,12 @@
 
 <!-- Inclución de archivos requeridos -->
+<?php
+error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+include('sesion.php');
+session_start();
+
+
+?>
 
 <!DOCTYPE html> 
 <html>
@@ -16,7 +23,7 @@
 			<div class= "encabezado">
 				<div class="izq">
 			
-				<p>Bienvenido/a:<br><!-- Agregar variable de sesión con nombre y apellido del usuario --></p>
+				<p>Bienvenido/a:<br><?php echo $_SESSION['nombres'] ?></p>
 
 				</div>
 
@@ -60,7 +67,7 @@
 	        </div>
 
 	        <div class="formulario">
-	            <form ="registro" method="post" action="" enctype="application/x-www-form-urlencoded">
+	            <form name="registro" method="post" action="" enctype="application/x-www-form-urlencoded">
 
 	                <div class="campo">
 	                    <label name="Seleccionar">Ingresa el Rut del registro a modificar:</label>
@@ -103,6 +110,19 @@
 						if ($seleccionar == '180332403') {
 							echo "<script lenguaje='javascript'>alert('Admin general no puede ser modificado');</script>";
 						}else {
+                            include('conexion');
+                            
+                            $nombre = $_POST['nombre'];
+                            $apellido = $_POST['apellido'];
+                            $cargo = $_POST['cargo'];
+                            
+                            $query = "UPDATE personal SET nombre='$nombre', apellido='$apellido',
+                            cargo='$cargo' WHERE rut='$seleccionar'";
+                            
+                            mysql_query($query, $conexion) or die('Se
+                            produjo un error en la actualización');
+                            
+                            header('Location:mod_personal.php');
 
 							/* Si no corresponde al rut del Admin entonces:
 							 		Recuperar las variables con los datos ingresados.
