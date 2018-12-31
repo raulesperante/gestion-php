@@ -1,6 +1,10 @@
 
 <!-- Incluir archivos requeridos -->
+<?php
+include('sesion.php');
+session_start();
 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +20,7 @@
             ?>
             <div class= "encabezado">
                 <div class="izq">
-                    <p>Bienvenido/a:<br><!-- Agregar variable de sesión con nombre y apellido del usuario --></p>
+                    <p>Bienvenido/a:<br><?php echo $_SESSION['nombres'] ?></p>
                 </div>
 
                 <div class="centro">
@@ -31,7 +35,7 @@
             <br><h1 align="center">GESTIÓN DE PERSONAL</h1>
 
             <div class="formulario">
-                <form ="registro" method="post" action="registro.php" enctype="application/x-www-form-urlencoded">
+                <form name="registro" method="post" action="registro.php" enctype="application/x-www-form-urlencoded">
                     <div class="campo">
                         <label for="cabra">RUT:</label>
                         <input type="text" name="rut" required/>
@@ -71,6 +75,17 @@
 
                     <div class="botones">
                         <input type="submit" name="boton-enviar" value="crear usuario"/>
+                        
+                        
+                        <?php
+                        if ($_GET['msg'] == 1)
+                        {
+                           echo "<div style='color:red;'><br><p>
+                           Las contraseñas no coinciden</p><br></div>";
+                            
+                        }
+                        
+                        ?>
 
                         <!-- Realizar verificación de variables segun sea el resultado de la validación en el archivo registro.php:
                         caso 1: Entregar el mensaje "Las contraseñas no coinciden",

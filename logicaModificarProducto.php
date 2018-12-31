@@ -19,7 +19,8 @@ if (isset($_POST['actualiza']))
     
    $stock = (int) $_POST['stock']; //Puede ser positivo o negativo
    
-   $array = validateCode($conexion, $cod);
+   $query = "SELECT * FROM productos WHERE cod_producto='$cod'";
+   $array = validateField($conexion, $query);
    if ($array['bool']) //el codigo es valido
    {
        if ($stock < 0) //stock negativo
@@ -49,7 +50,8 @@ elseif (isset($_POST['modificar']))
    $values = [$cod, $description, $provider, $date];
    $arguments = array_combine($keys, $values);
     
-   $array = validateCode($conexion, $cod);
+   $query = "SELECT * FROM productos WHERE cod_producto='$cod'";
+   $array = validateField($conexion, $query);
    if ($array['bool']) //El cod ingresado es valido
    {
        modifyProduct($conexion, $arguments);

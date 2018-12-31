@@ -12,10 +12,8 @@ function getStock($execute)
 //Devuelve un arreglo. La primera componente es un booleano
 //que indica que el codigo es correcto (true)
 //la segunda componente es el resultado de la consulta
-function validateCode($conexion, $cod)
+function validateField($conexion, $query)
 {
-    $query = "SELECT * FROM productos WHERE cod_producto='$cod'";
-    
     $execute = mysql_query($query, $conexion) or die('Error');
     
     $result = mysql_num_rows($execute);

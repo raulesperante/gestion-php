@@ -14,7 +14,8 @@ if (isset($_POST['eliminar']))
 {
     $cod = $_POST['eliminar-producto'];
     
-    $array = validateCode($conexion, $cod);
+    $query = "SELECT * FROM productos WHERE cod_producto='$cod'";
+    $array = validateField($conexion, $query);
     if ($array['bool']) //el codigo es valido
     {
         deleteProduct($conexion, $cod);
