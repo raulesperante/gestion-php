@@ -94,12 +94,13 @@ session_start();
                 elseif ($_GET['msg'] == 2)
                 {
                    echo "<br><div style='color:red;'<p>El stock no puede quedar negativo</p></div><br>";                   
+                    
                 }
                 elseif ($_GET['msg'] == 3)
                 {
-                   echo "<br><div style='color:red;'<p>El stock no puede quedar negativo</p></div><br>";                   
-                    
+                   echo "<br><div style='color:red;'<p>El código ingresado no se encuentra en la base de datos</p></div><br>";                   
                 }
+                
                 ?>
             </form>
 

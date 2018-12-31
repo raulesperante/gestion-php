@@ -27,8 +27,9 @@ if (isset($_POST['boton-enviar']) &&
     
     $query = "SELECT * FROM personal WHERE rut='$rut'";
     $array = validateField($conexion, $query);
-    if ($array['bool'] == false) //Si el rut no es unico
+    if ($array['bool']) //Si el rut ya está en la base 
     {
+        //regresar
         header('Location:crear_personal.php?msg=2');
     }
     //Crear usuario

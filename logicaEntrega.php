@@ -18,22 +18,21 @@ if (isset($_POST['agregar']))
 {
     $rut = $_POST['rut'];
     $cod = $_POST['codigo'];
-    $cantidad = $_POST['cantidad'];
+    $cantidad = (int) $_POST['cantidad'];
     $fecha = $_POST['fecha'];
     
     $keys = ['rut', 'cod', 'cantidad', 'fecha'];
     $values = [$rut, $cod, $cantidad, $fecha];
     $arguments = array_combine($keys, $values);
     
+    $query = "SELECT * FROM productos WHERE cod_producto='$cod'";
+    $array = validateField($conexion, $query);   
+    
     if ($cantidad <= 0) 
     {
         header('Location:realizar_entrega.php?msg=1');
     }
-   //Tengo que cargar la tabla entregas con los datos que me dieron 
-    
-   $query = "SELECT * FROM productos WHERE cod_producto='$cod'";
-   $array = validateField($conexion, $query);
-   if ($array['bool']) //el codigo es valido
+   elseif ($array['bool']) //el codigo es valido
    {
        $stock = getStock($array['executeQuery']) - $cantidad;
        if ($stock < 0) //stock negativo
@@ -50,7 +49,7 @@ if (isset($_POST['agregar']))
    else
    {
       //El codigo ingresado no esta en la base de datos
-      header('Location:mod_producto.php?msg=3');
+      header('Location:realizar_entrega.php?msg=3');
    }
 }
     
