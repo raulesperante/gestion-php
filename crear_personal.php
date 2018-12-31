@@ -1,6 +1,7 @@
 
 <!-- Incluir archivos requeridos -->
 <?php
+error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 include('sesion.php');
 session_start();
 
@@ -82,9 +83,17 @@ session_start();
                         {
                            echo "<div style='color:red;'><br><p>
                            Las contraseñas no coinciden</p><br></div>";
-                            
                         }
-                        
+                        elseif ($_GET['msg'] == 2)
+                        {
+                           echo "<div style='color:red;'><br><p>
+                           Ya existe un registro asociado al rut ingresado</p><br></div>";
+                        }
+                        elseif ($_GET['msg'] == 3)
+                        {
+                           echo "<div style='color:blue;'><br><p>
+                           Usuario creado correctamente</p><br></div>";
+                        }
                         ?>
 
                         <!-- Realizar verificación de variables segun sea el resultado de la validación en el archivo registro.php:

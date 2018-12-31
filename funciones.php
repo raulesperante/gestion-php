@@ -10,7 +10,7 @@ function getStock($execute)
 }
 
 //Devuelve un arreglo. La primera componente es un booleano
-//que indica que el codigo es correcto (true)
+//que indica que la primary key es correcta (true)
 //la segunda componente es el resultado de la consulta
 function validateField($conexion, $query)
 {
@@ -23,7 +23,7 @@ function validateField($conexion, $query)
         'executeQuery' => $execute,
     ]; 
     
-    if ($result ==  1) //El cod. es primary key 
+    if ($result ==  1) //Es primary key 
     {
         return $array;
     }
