@@ -1,5 +1,10 @@
 
 <!-- Inclución de archivos requeridos -->
+p<?php
+error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+include('sesion.php');
+session_start();
+?>
 
 <!DOCTYPE html> 
 <html>
@@ -15,7 +20,7 @@
 		<div class= "encabezado">
 			<div class="izq">
 			
-				<p>Bienvenido/a:<br><!-- Agregar variable de sesión con nombre y apellido del usuario --></p>
+				<p>Bienvenido/a:<br><?php echo $_SESSION['nombres'] ?></p>
 
 			</div>
 
@@ -70,6 +75,11 @@
 			}else{
 
 				// Aquí debes agregar la eliminación del registro.
+                $query = "DELETE FROM personal WHERE rut='$eliminar'";
+                
+                $execute = mysql_query($query, $conexion);
+                
+                header('Location:eliminar_personal.php');
 			
 			}
 
