@@ -20,7 +20,7 @@ contraseña='$pass'";
 
 $ejecutar = mysqli_query($conexion, $consulta);
 
-$result = mysql_num_rows($ejecutar);
+$result = mysqli_num_rows($ejecutar);
 
 if ($result > 0)
 {

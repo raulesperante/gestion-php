@@ -16,7 +16,7 @@ function validateField($conexion, $query)
 {
     $execute = mysqli_query($conexion, $query) or die('Error');
     
-    $result = mysql_num_rows($execute);
+    $result = mysqli_num_rows($execute);
     
     $array = [
         'bool' => true,

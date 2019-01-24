@@ -14,7 +14,7 @@ function existeCodigo($cod, $conexion)
     
     $ejecutar = mysqli_query($conexion, $consulta); 
     
-    $result = mysql_num_rows($ejecutar);
+    $result = mysqli_num_rows($ejecutar);
     
     if ($result >= 1)
     {
