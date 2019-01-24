@@ -55,7 +55,7 @@ session_start();
 				echo "<th width='20%'>FECHA DE INGRESO</th>";
 				echo  "</tr>"; 
 			
-				while($result=mysqli_fetch_array($ejecutar, MYSQLI_NUM)){	
+				while($result=mysqli_fetch_array($ejecutar, MYSQLI_ASSOC)){	
 		          	
 		          echo "<tr>";	         	  
 				  echo '<td width=10%>'.$result['cod_producto'].'</td>';

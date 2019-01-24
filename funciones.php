@@ -4,7 +4,7 @@
 //a partir de la segunda llamada
 function getStock($execute)
 {
-   $row = mysqli_fetch_array($execute, MYSQLI_NUM);
+   $row = mysqli_fetch_array($execute, MYSQLI_ASSOC);
    return (int) $row['stock'];
     
 }

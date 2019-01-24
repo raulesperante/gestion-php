@@ -48,7 +48,7 @@ session_start();
 			echo "<th width='20%'>CARGO</th>";
 			echo  "</tr>"; 
 		
-			while($result=mysqli_fetch_array($ejecutar, MYSQLI_NUM)){	
+			while($result=mysqli_fetch_array($ejecutar, MYSQLI_ASSOC)){	
 	          	
 	          echo "<tr>";	         	  
 			  echo '<td width=20%>'.$result['rut'].'</td>';
