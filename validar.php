@@ -24,7 +24,7 @@ $result = mysqli_num_rows($ejecutar);
 
 if ($result > 0)
 {
-	while ($result = mysql_fetch_array($ejecutar))
+	while ($result = mysqli_fetch_array($ejecutar, MYSQLI_NUM))
 	{
 		session_start();
 		$_SESSION['activo'] = true;

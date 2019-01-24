@@ -13,7 +13,7 @@ $result = mysqli_num_rows($ejecutar)
 
 if ($result == 1)
 {
-    row = mysql_fetch_array($ejecutar);
+    row = mysqli_fetch_array($ejecutar, MYSQLI_NUM);
     $nombre = row['nombre'];
     $apellido = row['apellido'];
     $nombreApellido = $nombre . ' ' . $apellido;
