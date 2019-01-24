@@ -14,7 +14,7 @@ function getStock($execute)
 //la segunda componente es el resultado de la consulta
 function validateField($conexion, $query)
 {
-    $execute = mysql_query($query, $conexion) or die('Error');
+    $execute = mysqli_query($conexion, $query) or die('Error');
     
     $result = mysql_num_rows($execute);
     
@@ -40,7 +40,7 @@ function updateStock($conexion, $stock, $cod)
    $query = "UPDATE productos SET stock={$stock} WHERE
    cod_producto={$cod}";
     
-   $execute = mysql_query($query, $conexion) or die('Error: No se pudo
+   $execute = mysqli_query($conexion, $query) or die('Error: No se pudo
    actualizar el stock');
 }
 ?>

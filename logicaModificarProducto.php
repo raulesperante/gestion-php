@@ -9,7 +9,7 @@ function modifyProduct($conexion, $arguments)
    proveedor='{$arguments['provider']}', fecha_ingreso='{$arguments['date']}' WHERE cod_producto='{$arguments['cod']}'";
     
     
-   $execute = mysql_query($query, $conexion) or die('Error: No se pudo
+   $execute = mysqli_query($conexion, $query) or die('Error: No se pudo
    modificar el producto');
 }
 

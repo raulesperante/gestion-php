@@ -8,7 +8,7 @@ $pass = md5($_POST['password']);
 $consulta = "SELECT * FROM personal WHERE rut='$usuario' AND 
 contraseña='$pass'";
 
-$ejecutar = mysql_query($consulta);
+$ejecutar = mysqli_query($conexion, $consulta);
 $result = mysql_num_rows($ejecutar)
 
 if ($result == 1)

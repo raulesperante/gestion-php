@@ -37,7 +37,7 @@ if (isset($_POST['boton-enviar']) &&
     cargo, contraseña) VALUES ('$rut', '$nombre',
     '$apellido', '$cargo', '$pass')";
 
-    $execute = mysql_query($query, $conexion) or die('Error');
+    $execute = mysqli_query($conexion, $query) or die('Error');
     header('Location:crear_personal.php?msg=3');
 }
 else

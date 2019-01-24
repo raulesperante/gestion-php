@@ -9,7 +9,7 @@ function loadDeliveries($conexion, $arguments)
     '{$arguments['cod']}', '{$arguments['cantidad']}', 
     '{$arguments['fecha']}')";
     
-    $execute = mysql_query($query, $conexion) or die('No se cargaron
+    $execute = mysqli_query($conexion, $query) or die('No se cargaron
     los datos');
 }
     

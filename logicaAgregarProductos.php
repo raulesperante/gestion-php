@@ -12,7 +12,7 @@ function existeCodigo($cod, $conexion)
     $consulta = "SELECT cod_producto FROM productos WHERE 
     cod_producto = '$cod'";
     
-    $ejecutar = mysql_query($consulta, $conexion); 
+    $ejecutar = mysqli_query($conexion, $consulta); 
     
     $result = mysql_num_rows($ejecutar);
     
@@ -35,7 +35,7 @@ function insertarDatos($arreglo, $conexion)
        ('{$arreglo["codigo"]}', '{$arreglo["descripcion"]}',
        '{$arreglo["stock"]}', '{$arreglo["proveedor"]}', '{$arreglo["fecha"]}')";
         
-   $ejecutar = mysql_query($consulta, $conexion) or die('Error al
+   $ejecutar = mysqli_query($conexion, $consulta) or die('Error al
     insertar datos');
 }
 

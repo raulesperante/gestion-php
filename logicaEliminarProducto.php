@@ -6,7 +6,7 @@ function deleteProduct($conexion, $cod)
 {
    $query = "DELETE FROM productos WHERE cod_producto='$cod'";
     
-   $execute = mysql_query($query, $conexion) or die('No se encontraron los datos');
+   $execute = mysqli_query($conexion, $query) or die('No se encontraron los datos');
 }
 
 

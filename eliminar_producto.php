@@ -45,7 +45,7 @@ session_start();
 				include('conexion.php');
 
 				$consulta="SELECT * FROM productos";
-				$ejecutar=mysql_query($consulta,$conexion);
+				$ejecutar=mysqli_query($conexion, $consulta);
 			
 				echo "<table  width='80%' align='center'><tr>";	         	  
 				echo "<th width='10%'>CODIGO PRODUCTO</th>";

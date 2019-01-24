@@ -39,7 +39,7 @@ session_start();
 			include('conexion.php');
 
 			$consulta="SELECT * FROM personal";
-			$ejecutar=mysql_query($consulta,$conexion);
+			$ejecutar=mysqli_query($conexion, $consulta);
 		
 			echo "<table  width='80%' align='center'><tr>";	         	  
 			echo "<th width='20%'>RUT</th>";
@@ -77,7 +77,7 @@ session_start();
 				// Aquí debes agregar la eliminación del registro.
                 $query = "DELETE FROM personal WHERE rut='$eliminar'";
                 
-                $execute = mysql_query($query, $conexion);
+                $execute = mysqli_query($conexion, $query);
                 
                 header('Location:eliminar_personal.php');
 			

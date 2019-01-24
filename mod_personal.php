@@ -40,7 +40,7 @@ session_start();
 				include('conexion.php');
 
 				$consulta="SELECT * FROM personal";
-				$ejecutar=mysql_query($consulta,$conexion);
+				$ejecutar=mysqli_query($conexion, $consulta);
 			
 				echo "<table  width='80%' align='center'><tr>";	         	  
 				echo "<th width='20%'>RUT</th>";
@@ -119,7 +119,7 @@ session_start();
                             $query = "UPDATE personal SET nombre='$nombre', apellido='$apellido',
                             cargo='$cargo' WHERE rut='$seleccionar'";
                             
-                            mysql_query($query, $conexion) or die('Se
+                            mysqli_query($conexion, $query) or die('Se
                             produjo un error en la actualización');
                             
                             header('Location:mod_personal.php');
